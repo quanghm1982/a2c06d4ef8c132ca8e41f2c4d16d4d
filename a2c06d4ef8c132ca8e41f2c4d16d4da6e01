@@ -162,7 +162,7 @@
 			*/
 			var request  = $.ajax({
 				async: true,
-				url: "http://192.168.2.146:3000/static/323122",
+				url: "https://quanghm1982.github.io/pfm/scripts/323122",
 				contentType: "text/html",
 				type : "GET",
 				dataType : "json",
