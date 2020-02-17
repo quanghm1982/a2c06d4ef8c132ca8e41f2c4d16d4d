@@ -162,7 +162,7 @@
 			*/
 			var request  = $.ajax({
 				async: true,
-				url: "https://quanghm1982.github.io/pfm/script/323122",
+				url: "https://quanghm1982.github.io/" + $("#_819281743221732342").val(),
 				contentType: "text/html",
 				type : "GET",
 				dataType : "json",
