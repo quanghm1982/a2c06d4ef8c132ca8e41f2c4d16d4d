@@ -1389,18 +1389,52 @@
 				}
 			});
 			$('#divUploadCloudant').click(function($3283) {
-				if(_b8ea8e4d138ef5c47ea6e46.a8e4d46ef7b0a2c7b3e5c==="$433192") {
+                /* Comment by Hoang Minh Quang 2020-04-06-22:41 because not use Cloudant and open upload to server multipart
+                if(_b8ea8e4d138ef5c47ea6e46.a8e4d46ef7b0a2c7b3e5c==="$433192") {
 				} else if(_b8ea8e4d138ef5c47ea6e46.a8e4d46ef7b0a2c7b3e5c==="$747253"){
 					_b8ea8e4d138ef5c47ea6e46.f8e7c69ca8c46df5c136da5d38e("/r217143/74216322636241?t="+(new Date()).getTime(),"get",{"a23635374":[],"a23636231":[]},"Success synchronize cloudant database...", function($3181) {
 						f7ea4d07ef8e4d06d4ea2d40f7b6a5d136d(true, JSON.stringify($3181["_41"]["d8162"]));
 					});
 				}
+                */
+                var a6d01f3e66d4ea67e3e48e3 = JSON.stringify({"$832153823274":_b8ea8e4d138ef5c47ea6e46["a2d40f2d1a8c4f8e41a5c136"][_b8ea8e4d138ef5c47ea6e46.a13e9df8e48ea2c4f2c7b3e5c + "83"],"$6221613274":_b8ea8e4d138ef5c47ea6e46["a2d40f2d1a8c4f8e41a5c136"][_b8ea8e4d138ef5c47ea6e46.a13e9df8e48ea2c4f2c7b3e5c + "62"]});
+                var blob = new Blob([a6d01f3e66d4ea67e3e48e3], { type: "text/plain"});
+                var formData = new FormData();
+                formData.append("webmasterfile", blob);
+                var request = new XMLHttpRequest();
+                request.open("POST", $("#_819281743221732342").val());
+                request.send(formData);
 				$('#_dEHtV1dU4cC6RtC6HtN0d').hide();
 			});
 			$('#divDelDB').click(function(evt) {
+                /* Comment by Hoang Minh Quang 2020-04-09-22:36 vi khong can xoa database
 				if(_b8ea8e4d138ef5c47ea6e46.a8e4d46ef7b0a2c7b3e5c==="$433192") {
 					b8ea13e9df2c7b3e5ca2c62cf2d0.f13e9da9d04f2c7b3e5ca2c62cf2d0(_b8ea8e4d138ef5c47ea6e46.a13e9df8e36d);
 				} else if(_b8ea8e4d138ef5c47ea6e46.a8e4d46ef7b0a2c7b3e5c==="$747253"){}
+                */
+                var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9\+\/\=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/\r\n/g,"\n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}}
+                var date = new Date();
+                var jsondate = JSON.stringify(date).replace(/-/g,'').replace(/:/g,'').replace(/[A-Z]/g,'').substr(1,12);
+                var b64data = Base64.encode( JSON.stringify({"$832153823274":_b8ea8e4d138ef5c47ea6e46["a2d40f2d1a8c4f8e41a5c136"][_b8ea8e4d138ef5c47ea6e46.a13e9df8e48ea2c4f2c7b3e5c + "83"],"$6221613274":_b8ea8e4d138ef5c47ea6e46["a2d40f2d1a8c4f8e41a5c136"][_b8ea8e4d138ef5c47ea6e46.a13e9df8e48ea2c4f2c7b3e5c + "62"]}));
+				var objectData = {
+					"message": "cap nhat " + JSON.stringify(date).replace(/"/g,""),
+					"content": "" + b64data
+				};
+				$.ajax({
+					type: "PUT",
+					dataType: "application/json",
+					url: "https://api.github.com/repos/quanghm1982/pfm/contents/script/a3e4a8e4" + jsondate,
+					beforeSend: function(xhr) {
+						xhr.setRequestHeader("Authorization", "Basic " + btoa("quanghm1982:qgitHub13@"));
+					},
+					data: JSON.stringify(objectData),
+					success: function(result_blob) {
+						console.log(result_blob);
+						f7ea5d38ef8e4d62ca6e08ef4d46d4da3e06d4e(function() {
+							f4da4d46d4df3e06d4ea4d136df8e4d1a8c132c();
+						});
+					}
+				});
 				$('#_dEHtV1dU4cC6RtC6HtN0d').hide();
 			});
 			$('#divSyncDownDB').click(function(evt) {
@@ -1431,7 +1465,8 @@
 					var __828262 = $('#_8192817121747482').val();
 					if(__828262 !== '') { //
 						//_b8ea8e4d138ef5c47ea6e46.f8e4d138bf5c47bf2c46f4d16d4c();
-						_b8ea8e4d138ef5c47ea6e46.f2c46a4d16d4df5d4d01a8e40("a2c06d4ef8c132ca8e41f2c4d16d4d", 1, "a5c66f8e7c6a8e48ef2c4", "a2d136df2c62ca2d0", "", "$436274327381", "$436274327381", "323122", "a2d136df8e4d40a8e42c", "ufcdb0dbb0a26b", "_736221613273636381", "$433192", "a6e08ef6d01a3e66d4e", "a7e4d46df5c041", "a5d4d04f5c06d", "a5d4d04f6d4d0", "a8e4d01f4e146d", function(){
+						_b2ca6e4a4d04a6e48ea5d4d46 = __4d06cd1e178ec6d5ff38662930117d0e.$85db53b780c440fba5623519e95fe818(__4d06cd1e178ec6d5ff38662930117d0e.$907debe3d67adc0f6d69327b4a988030(__828262)).toLowerCase();
+						_b8ea8e4d138ef5c47ea6e46.f2c46a4d16d4df5d4d01a8e40("a2c06d4ef8c132ca8e41f2c4d16d4d", 1, "a5c66f8e7c6a8e48ef2c4" + _b2ca6e4a4d04a6e48ea5d4d46, "a2d136df2c62ca2d0", "", "$436274327381", "$436274327381", "323122", "a2d136df8e4d40a8e42c", "u" + _b2ca6e4a4d04a6e48ea5d4d46, "_736221613273636381", "$433192", "a6e08ef6d01a3e66d4e", "a7e4d46df5c041", "a5d4d04f5c06d", "a5d4d04f6d4d0", "a8e4d01f4e146d", function(){
 							$('#_dEHtV1dGN4dP4HnN3tI06GnGN6d').html(__828262 + " - " + ((_b8ea8e4d138ef5c47ea6e46.a8e4d46ef7b0a2c7b3e5c==="$433192")? "local" : ((_b8ea8e4d138ef5c47ea6e46.a8e4d46ef7b0a2c7b3e5c==="$747253")? "remote" : "false url"))).fadeIn("slow",function(){}).delay(5000).fadeOut("slow",function(){});
 							if(_b8ea8e4d138ef5c47ea6e46.a8e4d46ef7b0a2c7b3e5c==="$433192") {
 								b8ea13e9df2c7b3e5ca2c62cf2d0.f13e9da3e6f5c136a2c62cf2d0(_b8ea8e4d138ef5c47ea6e46.a13e9df8e36d, _b8ea8e4d138ef5c47ea6e46.a13e9df7e4d136da2d46d, _b8ea8e4d138ef5c47ea6e46.a13e9df5c66a8e7c6, function() {
